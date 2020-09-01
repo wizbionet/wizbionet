@@ -19,7 +19,7 @@ top_percent<-function(inputDF, landmark_col, cols_to_cluster, cutoff){
   for (a in 1:length(cols_to_cluster)){
     invisible(utils::capture.output(inputDF[,cols_to_cluster[a]]<-as.numeric(paste(inputDF[,cols_to_cluster[a]]))))
     input<-inputDF[,c(landmark_col ,cols_to_cluster[a])]
-    input <- input[order(input[,2], decreasing = TRUE),]
+    input <- input[order(input[,cols_to_cluster[a]], decreasing = TRUE),]
     invisible(utils::capture.output(input[,2]<-as.numeric(paste(input[,2]))))
     invisible(utils::capture.output(input[,2][is.na(input[,2])] <- 0))
     invisible(utils::capture.output(input[,1]<-as.character(paste(input[,1]))))
