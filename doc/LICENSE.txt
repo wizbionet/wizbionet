@@ -1,0 +1,3 @@
+wizbionet is provided "as is" without warranty of any kind. This code can be used freely for personal, academic, or non-commercial purposes.
+YEAR: 2020
+COPYRIGHT HOLDER: Zofia Wicik
