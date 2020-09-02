@@ -1681,9 +1681,6 @@ cols_to_cluster="count"
 cutoff=25
 output&lt;- clusterizer_oneR(output, landmark_col, cols_to_cluster, cutoff) 
 head(output, n=10)</pre></body></html></div>
-<pre><code>#&gt; Warning in rm(temp, temp1, temp2): object 'temp' not found
-#&gt; Warning in rm(temp, temp1, temp2): object 'temp1' not found
-#&gt; Warning in rm(temp, temp1, temp2): object 'temp2' not found</code></pre>
 <table class="table table table-condensed">
 <thead><tr>
 <th style="text-align:left;">
@@ -2157,11 +2154,11 @@ FALSE
 <h3 class="hasAnchor">
 <a href="#merging-of-the-multiple-data-frames-with-headings-preservation-using-dataframe-merger" class="anchor"></a>8. Merging of the multiple data frames with headings preservation using dataframe.merger()</h3>
 <p>As you can see in the output appeared two columns ‘clus_count’ and ‘clusNR_count’. First column provides logical information if gene was present in the top two clusters (cl1, cl2). Second column provides information in which cluster appeared this gene. You can combine this data frame with your another data frame prioritized in same way using common column (in this case “SymbolNCBI”) and function <strong>dataframe.merger()</strong>.</p>
-<div class="sourceCode" id="cb13"><html><body><pre class="r"><span class="no">dataframe_list</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="st">'output'</span><span class="kw">=</span><span class="no">output</span>, <span class="st">'other_dataframe'</span><span class="kw">=</span><span class="no">other_dataframe</span>)
+<div class="sourceCode" id="cb12"><html><body><pre class="r"><span class="no">dataframe_list</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="st">'output'</span><span class="kw">=</span><span class="no">output</span>, <span class="st">'other_dataframe'</span><span class="kw">=</span><span class="no">other_dataframe</span>)
 <span class="no">ID_column</span><span class="kw">=</span><span class="st">"input"</span>
 <span class="fu"><a href="../reference/dataframe_merger.html">dataframe.merger</a></span>(<span class="no">dataframe_list</span>,  <span class="kw">ID_column</span><span class="kw">=</span><span class="st">"input"</span>)</pre></body></html></div>
 <p>If you are analyzing two data sets using this approach you can select genes present in both of them, so called top genes. This approach enables quick selection of top candidates across multiple datasates.</p>
-<div class="sourceCode" id="cb14"><html><body><pre class="r"><span class="no">landmark_col</span><span class="kw">=</span><span class="st">"SymbolNCBI"</span>
+<div class="sourceCode" id="cb13"><html><body><pre class="r"><span class="no">landmark_col</span><span class="kw">=</span><span class="st">"SymbolNCBI"</span>
 <span class="no">cols_to_cluster</span><span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"count"</span>, <span class="st">'count_regulatory_miRNA'</span>)
 <span class="no">output</span><span class="kw">&lt;-</span> <span class="fu"><a href="../reference/clusterizer_oneR.html">clusterizer_oneR</a></span>(<span class="no">output</span>, <span class="no">landmark_col</span>, <span class="no">cols_to_cluster</span>)
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">output</span>, <span class="kw">n</span><span class="kw">=</span><span class="fl">10</span>)</pre></body></html></div>
@@ -2198,7 +2195,7 @@ PTGER3
 3
 </td>
 <td style="text-align:right;">
-84
+79
 </td>
 <td style="text-align:left;color: red !important;">
 TRUE
@@ -2221,7 +2218,7 @@ BRD1
 3
 </td>
 <td style="text-align:right;">
-25
+23
 </td>
 <td style="text-align:left;color: red !important;">
 TRUE
@@ -2244,7 +2241,7 @@ RAD23B
 3
 </td>
 <td style="text-align:right;">
-65
+60
 </td>
 <td style="text-align:left;color: red !important;">
 TRUE
@@ -2253,10 +2250,10 @@ TRUE
 cl1
 </td>
 <td style="text-align:left;color: red !important;">
-TRUE
+FALSE
 </td>
 <td style="text-align:left;">
-cl2
+cl3
 </td>
 </tr>
 <tr>
@@ -2267,7 +2264,7 @@ PRKDC
 3
 </td>
 <td style="text-align:right;">
-46
+107
 </td>
 <td style="text-align:left;color: red !important;">
 TRUE
@@ -2276,10 +2273,10 @@ TRUE
 cl1
 </td>
 <td style="text-align:left;color: red !important;">
-FALSE
+TRUE
 </td>
 <td style="text-align:left;">
-cl3
+cl1
 </td>
 </tr>
 <tr>
@@ -2290,7 +2287,7 @@ SGCD
 2
 </td>
 <td style="text-align:right;">
-50
+28
 </td>
 <td style="text-align:left;color: red !important;">
 TRUE
@@ -2302,7 +2299,7 @@ cl2
 FALSE
 </td>
 <td style="text-align:left;">
-cl3
+cl4
 </td>
 </tr>
 <tr>
@@ -2313,7 +2310,7 @@ TBC1D8B
 2
 </td>
 <td style="text-align:right;">
-66
+45
 </td>
 <td style="text-align:left;color: red !important;">
 TRUE
@@ -2322,10 +2319,10 @@ TRUE
 cl2
 </td>
 <td style="text-align:left;color: red !important;">
-TRUE
+FALSE
 </td>
 <td style="text-align:left;">
-cl2
+cl3
 </td>
 </tr>
 <tr>
@@ -2336,7 +2333,7 @@ ANO5
 2
 </td>
 <td style="text-align:right;">
-105
+43
 </td>
 <td style="text-align:left;color: red !important;">
 TRUE
@@ -2345,10 +2342,10 @@ TRUE
 cl2
 </td>
 <td style="text-align:left;color: red !important;">
-TRUE
+FALSE
 </td>
 <td style="text-align:left;">
-cl1
+cl3
 </td>
 </tr>
 <tr>
@@ -2359,7 +2356,7 @@ FGFR1
 2
 </td>
 <td style="text-align:right;">
--2
+65
 </td>
 <td style="text-align:left;color: red !important;">
 TRUE
@@ -2368,10 +2365,10 @@ TRUE
 cl2
 </td>
 <td style="text-align:left;color: red !important;">
-FALSE
+TRUE
 </td>
 <td style="text-align:left;">
-cl4
+cl2
 </td>
 </tr>
 <tr>
@@ -2382,128 +2379,13 @@ PTGFR
 2
 </td>
 <td style="text-align:right;">
-21
+99
 </td>
 <td style="text-align:left;color: red !important;">
 TRUE
 </td>
 <td style="text-align:left;">
 cl2
-</td>
-<td style="text-align:left;color: red !important;">
-FALSE
-</td>
-<td style="text-align:left;">
-cl4
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-PTPRM
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-80
-</td>
-<td style="text-align:left;color: red !important;">
-TRUE
-</td>
-<td style="text-align:left;">
-cl2
-</td>
-<td style="text-align:left;color: red !important;">
-TRUE
-</td>
-<td style="text-align:left;">
-cl2
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CRIM1
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-36
-</td>
-<td style="text-align:left;color: red !important;">
-TRUE
-</td>
-<td style="text-align:left;">
-cl2
-</td>
-<td style="text-align:left;color: red !important;">
-FALSE
-</td>
-<td style="text-align:left;">
-cl3
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SNTB2
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:left;color: red !important;">
-FALSE
-</td>
-<td style="text-align:left;">
-cl3
-</td>
-<td style="text-align:left;color: red !important;">
-FALSE
-</td>
-<td style="text-align:left;">
-cl3
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-USP9Y
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:left;color: red !important;">
-FALSE
-</td>
-<td style="text-align:left;">
-cl3
-</td>
-<td style="text-align:left;color: red !important;">
-FALSE
-</td>
-<td style="text-align:left;">
-cl4
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CDH24
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-116
-</td>
-<td style="text-align:left;color: red !important;">
-FALSE
-</td>
-<td style="text-align:left;">
-cl3
 </td>
 <td style="text-align:left;color: red !important;">
 TRUE
@@ -2514,13 +2396,105 @@ cl1
 </tr>
 <tr>
 <td style="text-align:left;">
-ONECUT2
+PTPRM
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+39
+</td>
+<td style="text-align:left;color: red !important;">
+TRUE
+</td>
+<td style="text-align:left;">
+cl2
+</td>
+<td style="text-align:left;color: red !important;">
+FALSE
+</td>
+<td style="text-align:left;">
+cl4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CRIM1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+116
+</td>
+<td style="text-align:left;color: red !important;">
+TRUE
+</td>
+<td style="text-align:left;">
+cl2
+</td>
+<td style="text-align:left;color: red !important;">
+TRUE
+</td>
+<td style="text-align:left;">
+cl1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SNTB2
 </td>
 <td style="text-align:right;">
 1
 </td>
 <td style="text-align:right;">
-82
+33
+</td>
+<td style="text-align:left;color: red !important;">
+FALSE
+</td>
+<td style="text-align:left;">
+cl3
+</td>
+<td style="text-align:left;color: red !important;">
+FALSE
+</td>
+<td style="text-align:left;">
+cl4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+USP9Y
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+47
+</td>
+<td style="text-align:left;color: red !important;">
+FALSE
+</td>
+<td style="text-align:left;">
+cl3
+</td>
+<td style="text-align:left;color: red !important;">
+FALSE
+</td>
+<td style="text-align:left;">
+cl3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDH24
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+83
 </td>
 <td style="text-align:left;color: red !important;">
 FALSE
@@ -2535,6 +2509,29 @@ TRUE
 cl2
 </td>
 </tr>
+<tr>
+<td style="text-align:left;">
+ONECUT2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+53
+</td>
+<td style="text-align:left;color: red !important;">
+FALSE
+</td>
+<td style="text-align:left;">
+cl3
+</td>
+<td style="text-align:left;color: red !important;">
+FALSE
+</td>
+<td style="text-align:left;">
+cl3
+</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -2542,7 +2539,7 @@ cl2
 <h3 class="hasAnchor">
 <a href="#aggregation-and-summarizing-of-the-rows-across-multiple-columns-using-col_agrecounter" class="anchor"></a>9. Aggregation and summarizing of the rows across multiple columns using col_agrecounter()</h3>
 <p>Function <strong><em>col_agrecounter</em>()</strong>* allows to aggregates and summarize complex data frames with preserving names of the columns and providing: - aggregated occurrences for example genes or miRNAs in a column with preserved name and suffix "_coll" - count of occurrences from column "_coll" as collumn with suffix "_count". After this function we suggest runing top_percent() or clusterizer_oneR() to see which miRNAs are the most interesting ones based on the number of regulated targets.</p>
-<div class="sourceCode" id="cb15"><html><body><pre class="r"><span class="co">#Example</span>
+<div class="sourceCode" id="cb14"><html><body><pre class="r"><span class="co">#Example</span>
 <span class="no">dat1</span><span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span>(
   <span class="kw">mature_miRNA</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'hsa-miR-195-5p'</span>, <span class="st">'hsa-miR-195-3p'</span>,<span class="st">'hsa-miR-195-5p'</span>, <span class="st">'hsa-miR-195-5p'</span>,
                  <span class="st">'hsa-miR-4753-5p'</span>, <span class="st">'hsa-miR-4753-3p'</span>),
@@ -2744,7 +2741,7 @@ FGFR1|TGFB3
 <h3 class="hasAnchor">
 <a href="#identification-of-the-top-genes-across-datasets" class="anchor"></a>10. Identification of the top genes across datasets</h3>
 <p>Using base::subset function you can extract top genes which got high scores in both columns in this case “count” and ‘count_regulatory_miRNA’.</p>
-<div class="sourceCode" id="cb17"><html><body><pre class="r"><span class="no">output</span><span class="kw">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span>(<span class="no">output</span>, <span class="no">output</span>$<span class="no">clus_count</span><span class="kw">==</span><span class="fl">TRUE</span> <span class="kw">&amp;</span> <span class="no">output</span>$<span class="no">clus_count_regulatory_miRNA</span><span class="kw">==</span><span class="fl">TRUE</span> )</pre></body></html></div>
+<div class="sourceCode" id="cb16"><html><body><pre class="r"><span class="no">output</span><span class="kw">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span>(<span class="no">output</span>, <span class="no">output</span>$<span class="no">clus_count</span><span class="kw">==</span><span class="fl">TRUE</span> <span class="kw">&amp;</span> <span class="no">output</span>$<span class="no">clus_count_regulatory_miRNA</span><span class="kw">==</span><span class="fl">TRUE</span> )</pre></body></html></div>
 Example data frame:
 <table class="table table table-condensed">
 <thead><tr>
@@ -2773,36 +2770,13 @@ clusNR_count_regulatory_miRNA
 <tbody>
 <tr>
 <td style="text-align:left;">
-PTGER3
+PRKDC
 </td>
 <td style="text-align:right;">
 3
 </td>
 <td style="text-align:right;">
-83
-</td>
-<td style="text-align:left;color: red !important;">
-TRUE
-</td>
-<td style="text-align:left;">
-cl1
-</td>
-<td style="text-align:left;color: red !important;">
-TRUE
-</td>
-<td style="text-align:left;">
-cl2
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-BRD1
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-101
+95
 </td>
 <td style="text-align:left;color: red !important;">
 TRUE
@@ -2815,29 +2789,6 @@ TRUE
 </td>
 <td style="text-align:left;">
 cl1
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SGCD
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-92
-</td>
-<td style="text-align:left;color: red !important;">
-TRUE
-</td>
-<td style="text-align:left;">
-cl2
-</td>
-<td style="text-align:left;color: red !important;">
-TRUE
-</td>
-<td style="text-align:left;">
-cl2
 </td>
 </tr>
 <tr>
@@ -2848,7 +2799,76 @@ ANO5
 2
 </td>
 <td style="text-align:right;">
-82
+118
+</td>
+<td style="text-align:left;color: red !important;">
+TRUE
+</td>
+<td style="text-align:left;">
+cl2
+</td>
+<td style="text-align:left;color: red !important;">
+TRUE
+</td>
+<td style="text-align:left;">
+cl1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+FGFR1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+77
+</td>
+<td style="text-align:left;color: red !important;">
+TRUE
+</td>
+<td style="text-align:left;">
+cl2
+</td>
+<td style="text-align:left;color: red !important;">
+TRUE
+</td>
+<td style="text-align:left;">
+cl2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PTGFR
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+101
+</td>
+<td style="text-align:left;color: red !important;">
+TRUE
+</td>
+<td style="text-align:left;">
+cl2
+</td>
+<td style="text-align:left;color: red !important;">
+TRUE
+</td>
+<td style="text-align:left;">
+cl1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PTPRM
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+79
 </td>
 <td style="text-align:left;color: red !important;">
 TRUE
@@ -2871,7 +2891,7 @@ CRIM1
 2
 </td>
 <td style="text-align:right;">
-126
+113
 </td>
 <td style="text-align:left;color: red !important;">
 TRUE
@@ -2893,7 +2913,7 @@ cl1
 <h3 class="hasAnchor">
 <a href="#identification-of-the-top-mirnas-and-top-targets-using-topmirna_toptarget" class="anchor"></a>11. Identification of the top miRNAs and top targets using topmiRNA_toptarget()</h3>
 <p>As top miRNAs we define miRNAs associated with your process of interest and regulating highest number of deferentially expressed genes (DE genes). If you have expression data for miRNAs and mRNAs you can perform target predictions to identify pairs of oppositely regulated miRNAs and genes use function <strong>topmiRNA_toptarget()</strong>. This function retrieves miRNA-target interactions and identify miRNAs and genes with highest number of analyzed interactions with miRNAs. You can also use only targets associated with a specific process to identify top miRNAs regulating it.</p>
-<div class="sourceCode" id="cb18"><html><body><pre class="r"><span class="co">#generate and modify list of arguments. Important: Don't add mirna=  and  target= fields they are already included as DEmir_up,DEgenes_down,DEmir_down, DEgenes_up!</span>
+<div class="sourceCode" id="cb17"><html><body><pre class="r"><span class="co">#generate and modify list of arguments. Important: Don't add mirna=  and  target= fields they are already included as DEmir_up,DEgenes_down,DEmir_down, DEgenes_up!</span>
 <span class="no">multimir_args</span><span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">as.list</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/args.html">args</a></span>(<span class="kw pkg">multiMiR</span><span class="kw ns">::</span><span class="no"><a href="https://rdrr.io/pkg/multiMiR/man/get_multimir.html">get_multimir</a></span>))
 
 <span class="co">#add lists of DE miRNAs and genes</span>
@@ -4336,7 +4356,7 @@ FALSE
 <p><strong>analyze_onlyDEtargets</strong> TRUE or FALSE (logical), it says if you want to check all possible lncRNA targets or only DE targets.</p>
 <p><strong>ENST_targets</strong> vector of characters of human ENST numbers of your interest, usually DE mRNAs</p>
 <p><strong>nr_top_genes</strong> is a number number of top targets you want to select from all possible targets of lncRNAs. Default value for RNARNA database top targets output set by us is 500 if you want to compare it with DE genes. Your ENST_targets will be subtracted from this number.</p>
-<div class="sourceCode" id="cb19"><html><body><pre class="r"><span class="co">#Example of the analysis</span>
+<div class="sourceCode" id="cb18"><html><body><pre class="r"><span class="co">#Example of the analysis</span>
 <span class="no">ENST_input</span><span class="kw">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'ENST00000436290'</span>, <span class="st">'ENST00000432892'</span>, <span class="st">'ENST00000454526'</span>,
 <span class="st">'ENST00000423793'</span>, <span class="st">'ENST00000436960'</span>,<span class="st">'ENST00000412754'</span>
 )
@@ -5584,7 +5604,7 @@ List of RNAs interacting with ENST00000436290(MIR4500HG)
 <h3 class="hasAnchor">
 <a href="#copying-gene-list-to-the-clipboard-with-venny-list" class="anchor"></a>13. Copying gene list to the clipboard with venny.list()</h3>
 <p>If you want to quickly check the overlaps betwen the gene lists you can utilize function venny.list() it will copy to clipboard the vector of characters, remove NAs and duplicates. Additionally it will print the number of collected items. This function was created to use together with the webpage <a href="http://bioinfogp.cnb.csic.es/tools/venny/" class="uri">http://bioinfogp.cnb.csic.es/tools/venny/</a> or paste results to the excel or cytoscape</p>
-<div class="sourceCode" id="cb20"><html><body><pre class="r"><span class="no">genes</span><span class="kw">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'SGCD'</span>, <span class="st">'TBC1D8B'</span>, <span class="st">'PTGER3'</span>, <span class="st">'ANO5'</span>, <span class="st">'FGFR1'</span>, <span class="st">'PTGFR'</span>,<span class="st">'SNTB2'</span>, <span class="st">'USP9Y'</span>, <span class="st">'PTPRM'</span>, <span class="st">'CRIM1'</span>, <span class="st">'BRD1'</span>, <span class="st">'RAD23B'</span>, <span class="st">'PRKDC'</span>)
+<div class="sourceCode" id="cb19"><html><body><pre class="r"><span class="no">genes</span><span class="kw">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'SGCD'</span>, <span class="st">'TBC1D8B'</span>, <span class="st">'PTGER3'</span>, <span class="st">'ANO5'</span>, <span class="st">'FGFR1'</span>, <span class="st">'PTGFR'</span>,<span class="st">'SNTB2'</span>, <span class="st">'USP9Y'</span>, <span class="st">'PTPRM'</span>, <span class="st">'CRIM1'</span>, <span class="st">'BRD1'</span>, <span class="st">'RAD23B'</span>, <span class="st">'PRKDC'</span>)
 <span class="no">counts</span><span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">66</span>, <span class="fl">62</span>, <span class="fl">54</span>, <span class="fl">40</span>, <span class="fl">34</span>, <span class="fl">32</span>, <span class="fl">32</span>, <span class="fl">16</span>, <span class="fl">15</span>, <span class="fl">15</span>, <span class="fl">15</span>, <span class="fl">14</span>,<span class="fl">10</span>)
 <span class="no">input</span><span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span>(<span class="no">genes</span>,<span class="no">counts</span>)
 
