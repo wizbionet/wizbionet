@@ -18,8 +18,8 @@ top_percent<-function(inputDF, landmark_col, cols_to_cluster, cutoff){
 
 
   output<-inputDF
-  output$rows<-paste('r',1:nrow(inputDF))
-  rm(temp,temp1,temp2)
+  output$rows<-paste('r',1:nrow(inputDF),sep="")
+
   names(output)
   for (a in 1:length(cols_to_cluster)) {
     input<-output[,c(landmark_col, cols_to_cluster[a], "rows")]
