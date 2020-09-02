@@ -8,16 +8,15 @@ top_percent<-function(inputDF, landmark_col, cols_to_cluster, cutoff){
   }
 
 
-
-  inputDF<-as.data.frame(inputDF)
   inputDF<-NoNA.df(inputDF)
 
   invisible(utils::capture.output(inputDF[,landmark_col]<-as.character(inputDF[,landmark_col])))
-  a=1
+  a=2
   b=1
 
 
   output<-inputDF
+  rownames(output)<-NULL
   output$rows<-paste('r',1:nrow(inputDF),sep="")
 
   names(output)
@@ -27,13 +26,18 @@ top_percent<-function(inputDF, landmark_col, cols_to_cluster, cutoff){
     invisible(utils::capture.output(inputDF[,cols_to_cluster[a]]<-as.numeric(paste(inputDF[,cols_to_cluster[a]]))))
 
     input <- input[order(input[,cols_to_cluster[a]], decreasing = TRUE),]
-    #calculate cutoff
-    temp<- input
-    names(temp)
-    temp<-cutoff*nrow(temp)/100
-    x<- round(temp)
 
-    temp1<- input[1:x,]
+
+    temp<-range(input[,cols_to_cluster[a]], na.rm = FALSE)
+
+    #calculate cutoff
+
+    temp<- cutoff*temp[2]/100
+    temp
+    x<- round(temp)
+    #calculate cutoff
+
+    temp1<- subset(input, input[,cols_to_cluster[a]]>x)
     names(temp1)
     y<-temp1[nrow(temp1),2]
 
@@ -49,10 +53,11 @@ top_percent<-function(inputDF, landmark_col, cols_to_cluster, cutoff){
 
 
 
-    print(paste(cols_to_cluster[a], " top", cutoff, "% of values: selected " ,round(z), "% of rows (" ,nrow(x),
+    print(paste(cols_to_cluster[a], " top", cutoff, "% of values: selected " ,round(z), "% of values (" ,nrow(x),
                 " rows) for nr higher than ", round(y, digits=2), sep=''))
 
   }
   output$rows<-NULL
+
   return(output)
 }
