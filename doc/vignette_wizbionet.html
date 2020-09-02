@@ -12,7 +12,7 @@
 
 <meta name="author" content="Zofia Wicik" />
 
-<meta name="date" content="2020-08-31" />
+<meta name="date" content="2020-09-02" />
 
 <title>vignette-wizbionet</title>
 
@@ -514,7 +514,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">vignette-wizbionet</h1>
 <h4 class="author">Zofia Wicik</h4>
-<h4 class="date">2020-08-31</h4>
+<h4 class="date">2020-09-02</h4>
 
 
 
@@ -532,39 +532,40 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">#Some of the dependencies are not downloaded automatically yet. </span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="co">#Below is the code which will install all of them. Just copy it and paste to your R console</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="co">#dependencies</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a>      <span class="co">#dplyr (&gt;= 1.0.2), multiMiR (&gt;= 1.10.0),  stringr (&gt;= 1.4.0),  XML (&gt;= 3.99-0.5), </span></span>
-<span id="cb1-5"><a href="#cb1-5"></a>      <span class="co">#OneR (&gt;= 2.2.0), plyr (&gt;= 1.8.6), tidyselect (&gt;= 1.1.0), kableExtra (&gt;= 1.1.0)</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co">#dplyr (&gt;= 1.0.2), multiMiR (&gt;= 1.8.0),  stringr (&gt;= 1.4.0),  XML (&gt;= 3.99-0.5), </span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co">#OneR (&gt;= 2.2.0), plyr (&gt;= 1.8.6), </span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="co">#tidyselect (&gt;= 1.1.0), kableExtra (&gt;= 1.1.0), knitr (&gt;= 1.29), rmarkdown (&gt;= 2.3), utils </span></span>
 <span id="cb1-7"><a href="#cb1-7"></a></span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="co"># 1. installation of the necessary packages, if it will not work download tar file from the webpage.If will not work download tar files and install them using command #   # </span></span>
-<span id="cb1-9"><a href="#cb1-9"></a>    </span>
-<span id="cb1-10"><a href="#cb1-10"></a>    <span class="co">#install.packages(&quot;path_to_the package&quot;) </span></span>
-<span id="cb1-11"><a href="#cb1-11"></a>      <span class="cf">if</span> (<span class="op">!</span><span class="kw">requireNamespace</span>(<span class="st">&quot;BiocManager&quot;</span>, <span class="dt">quietly=</span><span class="ot">TRUE</span>))</span>
-<span id="cb1-12"><a href="#cb1-12"></a>          <span class="kw">install.packages</span>(<span class="st">&quot;BiocManager&quot;</span>)</span>
-<span id="cb1-13"><a href="#cb1-13"></a>      BiocManager<span class="op">::</span><span class="kw">install</span>()</span>
-<span id="cb1-14"><a href="#cb1-14"></a>      BiocManager<span class="op">::</span><span class="kw">install</span>(<span class="st">&quot;multiMiR&quot;</span>)</span>
-<span id="cb1-15"><a href="#cb1-15"></a>    </span>
-<span id="cb1-16"><a href="#cb1-16"></a>    <span class="co"># https://cran.r-project.org/web/packages/OneR/index.html</span></span>
-<span id="cb1-17"><a href="#cb1-17"></a>    <span class="kw">install.packages</span>(<span class="st">&quot;OneR&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;binary&quot;</span>) </span>
-<span id="cb1-18"><a href="#cb1-18"></a>    </span>
-<span id="cb1-19"><a href="#cb1-19"></a>    <span class="co">#https://cran.r-project.org/web/packages/kableExtra/</span></span>
-<span id="cb1-20"><a href="#cb1-20"></a>    <span class="kw">install.packages</span>(<span class="st">&#39;kableExtra&#39;</span>,  <span class="dt">type =</span> <span class="st">&quot;binary&quot;</span>)</span>
-<span id="cb1-21"><a href="#cb1-21"></a>    </span>
-<span id="cb1-22"><a href="#cb1-22"></a></span>
-<span id="cb1-23"><a href="#cb1-23"></a><span class="co"># 2 A. You can  install package wizbionet from the GitHub use this command:</span></span>
-<span id="cb1-24"><a href="#cb1-24"></a>    <span class="kw">install.packages</span>(<span class="st">&quot;remotes&quot;</span>)</span>
-<span id="cb1-25"><a href="#cb1-25"></a>    remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;wizbionet/wizbionet&quot;</span>, <span class="dt">dependencies =</span><span class="st">&quot;Depends&quot;</span>)</span>
-<span id="cb1-26"><a href="#cb1-26"></a>    </span>
-<span id="cb1-27"><a href="#cb1-27"></a><span class="co"># 2 B.Or install wizbionet from the wizbionet_0.99.0.tar.gz file downloaded from this link:</span></span>
-<span id="cb1-28"><a href="#cb1-28"></a>    <span class="co">#https://github.com/wizbionet/wizbionet/raw/master/wizbionet_0.99.0.tar.gz</span></span>
-<span id="cb1-29"><a href="#cb1-29"></a>    </span>
-<span id="cb1-30"><a href="#cb1-30"></a>    <span class="kw">install.packages</span>(<span class="st">&quot;https://github.com/wizbionet/wizbionet/raw/master/wizbionet_0.99.0.tar.gz&quot;</span>, </span>
-<span id="cb1-31"><a href="#cb1-31"></a>                 <span class="dt">repos =</span> <span class="ot">NULL</span>, <span class="dt">type =</span> <span class="st">&quot;source&quot;</span>, </span>
-<span id="cb1-32"><a href="#cb1-32"></a>                 <span class="dt">dependencies =</span><span class="ot">TRUE</span></span>
-<span id="cb1-33"><a href="#cb1-33"></a>                 )</span>
-<span id="cb1-34"><a href="#cb1-34"></a></span>
-<span id="cb1-35"><a href="#cb1-35"></a><span class="co">#Voila, load the package:</span></span>
-<span id="cb1-36"><a href="#cb1-36"></a><span class="kw">library</span>(wizbionet)</span></code></pre></div>
+<span id="cb1-8"><a href="#cb1-8"></a></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="co"># 1. installation of the necessary packages, if it will not work download source file from the webpage.</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a>    <span class="co">#https://www.bioconductor.org/packages/release/bioc/html/multiMiR.html</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a>  </span>
+<span id="cb1-12"><a href="#cb1-12"></a>      <span class="cf">if</span> (<span class="op">!</span><span class="kw">requireNamespace</span>(<span class="st">&quot;BiocManager&quot;</span>, <span class="dt">quietly=</span><span class="ot">TRUE</span>))</span>
+<span id="cb1-13"><a href="#cb1-13"></a>          <span class="kw">install.packages</span>(<span class="st">&quot;BiocManager&quot;</span>)</span>
+<span id="cb1-14"><a href="#cb1-14"></a>      BiocManager<span class="op">::</span><span class="kw">install</span>()</span>
+<span id="cb1-15"><a href="#cb1-15"></a>      BiocManager<span class="op">::</span><span class="kw">install</span>(<span class="st">&quot;multiMiR&quot;</span>)</span>
+<span id="cb1-16"><a href="#cb1-16"></a>    </span>
+<span id="cb1-17"><a href="#cb1-17"></a>    <span class="co"># https://cran.r-project.org/web/packages/OneR/index.html</span></span>
+<span id="cb1-18"><a href="#cb1-18"></a>    <span class="kw">install.packages</span>(<span class="st">&quot;OneR&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;binary&quot;</span>) </span>
+<span id="cb1-19"><a href="#cb1-19"></a>    </span>
+<span id="cb1-20"><a href="#cb1-20"></a>    <span class="co">#https://cran.r-project.org/web/packages/kableExtra/</span></span>
+<span id="cb1-21"><a href="#cb1-21"></a>    <span class="kw">install.packages</span>(<span class="st">&#39;kableExtra&#39;</span>,  <span class="dt">type =</span> <span class="st">&quot;binary&quot;</span>)</span>
+<span id="cb1-22"><a href="#cb1-22"></a>    </span>
+<span id="cb1-23"><a href="#cb1-23"></a></span>
+<span id="cb1-24"><a href="#cb1-24"></a><span class="co"># 2 A. You can  install package wizbionet from the GitHub use this command:</span></span>
+<span id="cb1-25"><a href="#cb1-25"></a>    <span class="kw">install.packages</span>(<span class="st">&quot;remotes&quot;</span>)</span>
+<span id="cb1-26"><a href="#cb1-26"></a>    remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;wizbionet/wizbionet&quot;</span>, <span class="dt">dependencies =</span><span class="st">&quot;Depends&quot;</span>)</span>
+<span id="cb1-27"><a href="#cb1-27"></a>    </span>
+<span id="cb1-28"><a href="#cb1-28"></a><span class="co"># 2 B.Or install wizbionet from the wizbionet_0.99.0.tar.gz file downloaded from this link:</span></span>
+<span id="cb1-29"><a href="#cb1-29"></a>    <span class="co">#https://github.com/wizbionet/wizbionet/raw/master/wizbionet_0.99.0.tar.gz</span></span>
+<span id="cb1-30"><a href="#cb1-30"></a>    </span>
+<span id="cb1-31"><a href="#cb1-31"></a>    <span class="kw">install.packages</span>(<span class="st">&quot;https://github.com/wizbionet/wizbionet/raw/master/wizbionet_0.99.0.tar.gz&quot;</span>, </span>
+<span id="cb1-32"><a href="#cb1-32"></a>                 <span class="dt">repos =</span> <span class="ot">NULL</span>, <span class="dt">type =</span> <span class="st">&quot;source&quot;</span>, </span>
+<span id="cb1-33"><a href="#cb1-33"></a>                 <span class="dt">dependencies =</span><span class="ot">TRUE</span></span>
+<span id="cb1-34"><a href="#cb1-34"></a>                 )</span>
+<span id="cb1-35"><a href="#cb1-35"></a></span>
+<span id="cb1-36"><a href="#cb1-36"></a><span class="co">#Voila, load the package:</span></span>
+<span id="cb1-37"><a href="#cb1-37"></a><span class="kw">library</span>(wizbionet)</span></code></pre></div>
 </div>
 <div id="wizbionet-workflow-example" class="section level2">
 <h2>wizbionet workflow example</h2>
@@ -2281,7 +2282,7 @@ SGCD
 ENSG00000170624
 </td>
 <td style="text-align:left;color: red !important;">
-FALSE
+TRUE
 </td>
 </tr>
 <tr>
@@ -2310,7 +2311,7 @@ TBC1D8B
 ENSG00000133138
 </td>
 <td style="text-align:left;color: red !important;">
-FALSE
+TRUE
 </td>
 </tr>
 <tr>
@@ -2339,7 +2340,7 @@ ANO5
 ENSG00000171714
 </td>
 <td style="text-align:left;color: red !important;">
-FALSE
+TRUE
 </td>
 </tr>
 <tr>
@@ -2368,7 +2369,7 @@ FGFR1
 ENSG00000077782
 </td>
 <td style="text-align:left;color: red !important;">
-FALSE
+TRUE
 </td>
 </tr>
 <tr>
@@ -2397,7 +2398,7 @@ PTGFR
 ENSG00000122420
 </td>
 <td style="text-align:left;color: red !important;">
-FALSE
+TRUE
 </td>
 </tr>
 <tr>
@@ -2426,7 +2427,7 @@ PTPRM
 ENSG00000173482
 </td>
 <td style="text-align:left;color: red !important;">
-FALSE
+TRUE
 </td>
 </tr>
 <tr>
@@ -2455,7 +2456,7 @@ CRIM1
 ENSG00000150938
 </td>
 <td style="text-align:left;color: red !important;">
-FALSE
+TRUE
 </td>
 </tr>
 <tr>
@@ -2623,7 +2624,30 @@ PTGER3
 3
 </td>
 <td style="text-align:right;">
-96
+42
+</td>
+<td style="text-align:left;color: red !important;">
+TRUE
+</td>
+<td style="text-align:left;">
+cl1
+</td>
+<td style="text-align:left;color: red !important;">
+FALSE
+</td>
+<td style="text-align:left;">
+cl3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BRD1
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+67
 </td>
 <td style="text-align:left;color: red !important;">
 TRUE
@@ -2640,13 +2664,13 @@ cl2
 </tr>
 <tr>
 <td style="text-align:left;">
-BRD1
+RAD23B
 </td>
 <td style="text-align:right;">
 3
 </td>
 <td style="text-align:right;">
-34
+46
 </td>
 <td style="text-align:left;color: red !important;">
 TRUE
@@ -2658,30 +2682,7 @@ cl1
 FALSE
 </td>
 <td style="text-align:left;">
-cl4
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-RAD23B
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-107
-</td>
-<td style="text-align:left;color: red !important;">
-TRUE
-</td>
-<td style="text-align:left;">
-cl1
-</td>
-<td style="text-align:left;color: red !important;">
-TRUE
-</td>
-<td style="text-align:left;">
-cl1
+cl3
 </td>
 </tr>
 <tr>
@@ -2692,7 +2693,7 @@ PRKDC
 3
 </td>
 <td style="text-align:right;">
-21
+41
 </td>
 <td style="text-align:left;color: red !important;">
 TRUE
@@ -2704,7 +2705,7 @@ cl1
 FALSE
 </td>
 <td style="text-align:left;">
-cl4
+cl3
 </td>
 </tr>
 <tr>
@@ -2715,7 +2716,7 @@ SGCD
 2
 </td>
 <td style="text-align:right;">
-44
+41
 </td>
 <td style="text-align:left;color: red !important;">
 TRUE
@@ -2738,7 +2739,30 @@ TBC1D8B
 2
 </td>
 <td style="text-align:right;">
-28
+105
+</td>
+<td style="text-align:left;color: red !important;">
+TRUE
+</td>
+<td style="text-align:left;">
+cl2
+</td>
+<td style="text-align:left;color: red !important;">
+TRUE
+</td>
+<td style="text-align:left;">
+cl1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ANO5
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+4
 </td>
 <td style="text-align:left;color: red !important;">
 TRUE
@@ -2755,36 +2779,13 @@ cl4
 </tr>
 <tr>
 <td style="text-align:left;">
-ANO5
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-56
-</td>
-<td style="text-align:left;color: red !important;">
-TRUE
-</td>
-<td style="text-align:left;">
-cl2
-</td>
-<td style="text-align:left;color: red !important;">
-FALSE
-</td>
-<td style="text-align:left;">
-cl3
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
 FGFR1
 </td>
 <td style="text-align:right;">
 2
 </td>
 <td style="text-align:right;">
-46
+74
 </td>
 <td style="text-align:left;color: red !important;">
 TRUE
@@ -2793,10 +2794,10 @@ TRUE
 cl2
 </td>
 <td style="text-align:left;color: red !important;">
-FALSE
+TRUE
 </td>
 <td style="text-align:left;">
-cl3
+cl2
 </td>
 </tr>
 <tr>
@@ -2807,7 +2808,7 @@ PTGFR
 2
 </td>
 <td style="text-align:right;">
-63
+47
 </td>
 <td style="text-align:left;color: red !important;">
 TRUE
@@ -2830,7 +2831,7 @@ PTPRM
 2
 </td>
 <td style="text-align:right;">
-54
+31
 </td>
 <td style="text-align:left;color: red !important;">
 TRUE
@@ -2853,7 +2854,7 @@ CRIM1
 2
 </td>
 <td style="text-align:right;">
-14
+103
 </td>
 <td style="text-align:left;color: red !important;">
 TRUE
@@ -2862,10 +2863,10 @@ TRUE
 cl2
 </td>
 <td style="text-align:left;color: red !important;">
-FALSE
+TRUE
 </td>
 <td style="text-align:left;">
-cl4
+cl1
 </td>
 </tr>
 <tr>
@@ -2876,7 +2877,7 @@ SNTB2
 1
 </td>
 <td style="text-align:right;">
-28
+87
 </td>
 <td style="text-align:left;color: red !important;">
 FALSE
@@ -2885,10 +2886,10 @@ FALSE
 cl3
 </td>
 <td style="text-align:left;color: red !important;">
-FALSE
+TRUE
 </td>
 <td style="text-align:left;">
-cl4
+cl1
 </td>
 </tr>
 <tr>
@@ -2899,7 +2900,7 @@ USP9Y
 1
 </td>
 <td style="text-align:right;">
-26
+64
 </td>
 <td style="text-align:left;color: red !important;">
 FALSE
@@ -2908,10 +2909,10 @@ FALSE
 cl3
 </td>
 <td style="text-align:left;color: red !important;">
-FALSE
+TRUE
 </td>
 <td style="text-align:left;">
-cl4
+cl2
 </td>
 </tr>
 <tr>
@@ -2922,7 +2923,7 @@ CDH24
 1
 </td>
 <td style="text-align:right;">
-47
+32
 </td>
 <td style="text-align:left;color: red !important;">
 FALSE
@@ -2945,7 +2946,7 @@ ONECUT2
 1
 </td>
 <td style="text-align:right;">
-88
+45
 </td>
 <td style="text-align:left;color: red !important;">
 FALSE
@@ -2954,10 +2955,10 @@ FALSE
 cl3
 </td>
 <td style="text-align:left;color: red !important;">
-TRUE
+FALSE
 </td>
 <td style="text-align:left;">
-cl2
+cl3
 </td>
 </tr>
 </tbody>
@@ -3200,13 +3201,13 @@ clusNR_count_regulatory_miRNA
 <tbody>
 <tr>
 <td style="text-align:left;">
-PTGER3
+RAD23B
 </td>
 <td style="text-align:right;">
 3
 </td>
 <td style="text-align:right;">
-81
+137
 </td>
 <td style="text-align:left;color: red !important;">
 TRUE
@@ -3218,7 +3219,7 @@ cl1
 TRUE
 </td>
 <td style="text-align:left;">
-cl2
+cl1
 </td>
 </tr>
 <tr>
@@ -3229,7 +3230,7 @@ PRKDC
 3
 </td>
 <td style="text-align:right;">
-69
+74
 </td>
 <td style="text-align:left;color: red !important;">
 TRUE
@@ -3246,13 +3247,13 @@ cl2
 </tr>
 <tr>
 <td style="text-align:left;">
-ANO5
+SGCD
 </td>
 <td style="text-align:right;">
 2
 </td>
 <td style="text-align:right;">
-162
+79
 </td>
 <td style="text-align:left;color: red !important;">
 TRUE
@@ -3264,7 +3265,30 @@ cl2
 TRUE
 </td>
 <td style="text-align:left;">
-cl1
+cl2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TBC1D8B
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+83
+</td>
+<td style="text-align:left;color: red !important;">
+TRUE
+</td>
+<td style="text-align:left;">
+cl2
+</td>
+<td style="text-align:left;color: red !important;">
+TRUE
+</td>
+<td style="text-align:left;">
+cl2
 </td>
 </tr>
 <tr>
@@ -3275,7 +3299,7 @@ FGFR1
 2
 </td>
 <td style="text-align:right;">
-96
+73
 </td>
 <td style="text-align:left;color: red !important;">
 TRUE
@@ -3298,30 +3322,7 @@ PTGFR
 2
 </td>
 <td style="text-align:right;">
-82
-</td>
-<td style="text-align:left;color: red !important;">
-TRUE
-</td>
-<td style="text-align:left;">
-cl2
-</td>
-<td style="text-align:left;color: red !important;">
-TRUE
-</td>
-<td style="text-align:left;">
-cl2
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-PTPRM
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-70
+86
 </td>
 <td style="text-align:left;color: red !important;">
 TRUE

@@ -9,13 +9,14 @@ knitr::opts_chunk$set(
 #  #Some of the dependencies are not downloaded automatically yet.
 #  #Below is the code which will install all of them. Just copy it and paste to your R console
 #  #dependencies
-#        #dplyr (>= 1.0.2), multiMiR (>= 1.10.0),  stringr (>= 1.4.0),  XML (>= 3.99-0.5),
-#        #OneR (>= 2.2.0), plyr (>= 1.8.6), tidyselect (>= 1.1.0), kableExtra (>= 1.1.0)
+#  #dplyr (>= 1.0.2), multiMiR (>= 1.8.0),  stringr (>= 1.4.0),  XML (>= 3.99-0.5),
+#  #OneR (>= 2.2.0), plyr (>= 1.8.6),
+#  #tidyselect (>= 1.1.0), kableExtra (>= 1.1.0), knitr (>= 1.29), rmarkdown (>= 2.3), utils
 #  
 #  
-#  # 1. installation of the necessary packages, if it will not work download tar file from the webpage.If will not work download tar files and install them using command #   #
+#  # 1. installation of the necessary packages, if it will not work download source file from the webpage.
+#      #https://www.bioconductor.org/packages/release/bioc/html/multiMiR.html
 #  
-#      #install.packages("path_to_the package")
 #        if (!requireNamespace("BiocManager", quietly=TRUE))
 #            install.packages("BiocManager")
 #        BiocManager::install()

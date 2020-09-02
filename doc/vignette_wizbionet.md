@@ -1,7 +1,7 @@
 ---
 title: "vignette-wizbionet"
 author: "Zofia Wicik"
-date: "2020-08-31"
+date: "2020-09-02"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{vignette-wizbionet}
@@ -25,13 +25,14 @@ In order to identify  best coding and non-coding genes that would serve as key r
 #Some of the dependencies are not downloaded automatically yet. 
 #Below is the code which will install all of them. Just copy it and paste to your R console
 #dependencies
-      #dplyr (>= 1.0.2), multiMiR (>= 1.10.0),  stringr (>= 1.4.0),  XML (>= 3.99-0.5), 
-      #OneR (>= 2.2.0), plyr (>= 1.8.6), tidyselect (>= 1.1.0), kableExtra (>= 1.1.0)
+#dplyr (>= 1.0.2), multiMiR (>= 1.8.0),  stringr (>= 1.4.0),  XML (>= 3.99-0.5), 
+#OneR (>= 2.2.0), plyr (>= 1.8.6), 
+#tidyselect (>= 1.1.0), kableExtra (>= 1.1.0), knitr (>= 1.29), rmarkdown (>= 2.3), utils 
 
 
-# 1. installation of the necessary packages, if it will not work download tar file from the webpage.If will not work download tar files and install them using command #   # 
-    
-    #install.packages("path_to_the package") 
+# 1. installation of the necessary packages, if it will not work download source file from the webpage.
+    #https://www.bioconductor.org/packages/release/bioc/html/multiMiR.html
+  
       if (!requireNamespace("BiocManager", quietly=TRUE))
           install.packages("BiocManager")
       BiocManager::install()
@@ -855,7 +856,7 @@ head(output, n=10)
    <td style="text-align:left;"> SGCD </td>
    <td style="text-align:left;"> 6444 </td>
    <td style="text-align:left;"> ENSG00000170624 </td>
-   <td style="text-align:left;color: red !important;"> FALSE </td>
+   <td style="text-align:left;color: red !important;"> TRUE </td>
   </tr>
   <tr>
    <td style="text-align:left;"> TBC1D8B </td>
@@ -866,7 +867,7 @@ head(output, n=10)
    <td style="text-align:left;"> TBC1D8B </td>
    <td style="text-align:left;"> 54885 </td>
    <td style="text-align:left;"> ENSG00000133138 </td>
-   <td style="text-align:left;color: red !important;"> FALSE </td>
+   <td style="text-align:left;color: red !important;"> TRUE </td>
   </tr>
   <tr>
    <td style="text-align:left;"> ANO5 </td>
@@ -877,7 +878,7 @@ head(output, n=10)
    <td style="text-align:left;"> ANO5 </td>
    <td style="text-align:left;"> 203859 </td>
    <td style="text-align:left;"> ENSG00000171714 </td>
-   <td style="text-align:left;color: red !important;"> FALSE </td>
+   <td style="text-align:left;color: red !important;"> TRUE </td>
   </tr>
   <tr>
    <td style="text-align:left;"> FGFR1 </td>
@@ -888,7 +889,7 @@ head(output, n=10)
    <td style="text-align:left;"> FGFR1 </td>
    <td style="text-align:left;"> 2260 </td>
    <td style="text-align:left;"> ENSG00000077782 </td>
-   <td style="text-align:left;color: red !important;"> FALSE </td>
+   <td style="text-align:left;color: red !important;"> TRUE </td>
   </tr>
   <tr>
    <td style="text-align:left;"> PTGFR </td>
@@ -899,7 +900,7 @@ head(output, n=10)
    <td style="text-align:left;"> PTGFR </td>
    <td style="text-align:left;"> 5737 </td>
    <td style="text-align:left;"> ENSG00000122420 </td>
-   <td style="text-align:left;color: red !important;"> FALSE </td>
+   <td style="text-align:left;color: red !important;"> TRUE </td>
   </tr>
   <tr>
    <td style="text-align:left;"> PTPRM </td>
@@ -910,7 +911,7 @@ head(output, n=10)
    <td style="text-align:left;"> PTPRM </td>
    <td style="text-align:left;"> 5797 </td>
    <td style="text-align:left;"> ENSG00000173482 </td>
-   <td style="text-align:left;color: red !important;"> FALSE </td>
+   <td style="text-align:left;color: red !important;"> TRUE </td>
   </tr>
   <tr>
    <td style="text-align:left;"> CRIM1 </td>
@@ -921,7 +922,7 @@ head(output, n=10)
    <td style="text-align:left;"> CRIM1 </td>
    <td style="text-align:left;"> 51232 </td>
    <td style="text-align:left;"> ENSG00000150938 </td>
-   <td style="text-align:left;color: red !important;"> FALSE </td>
+   <td style="text-align:left;color: red !important;"> TRUE </td>
   </tr>
   <tr>
    <td style="text-align:left;"> SNTB2 </td>
@@ -1006,43 +1007,43 @@ head(output, n=10)
   <tr>
    <td style="text-align:left;"> PTGER3 </td>
    <td style="text-align:right;"> 3 </td>
-   <td style="text-align:right;"> 75 </td>
+   <td style="text-align:right;"> -3 </td>
+   <td style="text-align:left;color: red !important;"> TRUE </td>
+   <td style="text-align:left;"> cl1 </td>
+   <td style="text-align:left;color: red !important;"> FALSE </td>
+   <td style="text-align:left;"> cl4 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> BRD1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 79 </td>
    <td style="text-align:left;color: red !important;"> TRUE </td>
    <td style="text-align:left;"> cl1 </td>
    <td style="text-align:left;color: red !important;"> TRUE </td>
    <td style="text-align:left;"> cl2 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> BRD1 </td>
+   <td style="text-align:left;"> RAD23B </td>
    <td style="text-align:right;"> 3 </td>
-   <td style="text-align:right;"> 60 </td>
+   <td style="text-align:right;"> 26 </td>
+   <td style="text-align:left;color: red !important;"> TRUE </td>
+   <td style="text-align:left;"> cl1 </td>
+   <td style="text-align:left;color: red !important;"> FALSE </td>
+   <td style="text-align:left;"> cl4 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> PRKDC </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 45 </td>
    <td style="text-align:left;color: red !important;"> TRUE </td>
    <td style="text-align:left;"> cl1 </td>
    <td style="text-align:left;color: red !important;"> FALSE </td>
    <td style="text-align:left;"> cl3 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> RAD23B </td>
-   <td style="text-align:right;"> 3 </td>
-   <td style="text-align:right;"> 89 </td>
-   <td style="text-align:left;color: red !important;"> TRUE </td>
-   <td style="text-align:left;"> cl1 </td>
-   <td style="text-align:left;color: red !important;"> TRUE </td>
-   <td style="text-align:left;"> cl2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> PRKDC </td>
-   <td style="text-align:right;"> 3 </td>
-   <td style="text-align:right;"> 90 </td>
-   <td style="text-align:left;color: red !important;"> TRUE </td>
-   <td style="text-align:left;"> cl1 </td>
-   <td style="text-align:left;color: red !important;"> TRUE </td>
-   <td style="text-align:left;"> cl2 </td>
-  </tr>
-  <tr>
    <td style="text-align:left;"> SGCD </td>
    <td style="text-align:right;"> 2 </td>
-   <td style="text-align:right;"> 91 </td>
+   <td style="text-align:right;"> 89 </td>
    <td style="text-align:left;color: red !important;"> TRUE </td>
    <td style="text-align:left;"> cl2 </td>
    <td style="text-align:left;color: red !important;"> TRUE </td>
@@ -1051,34 +1052,34 @@ head(output, n=10)
   <tr>
    <td style="text-align:left;"> TBC1D8B </td>
    <td style="text-align:right;"> 2 </td>
-   <td style="text-align:right;"> 64 </td>
+   <td style="text-align:right;"> 6 </td>
    <td style="text-align:left;color: red !important;"> TRUE </td>
    <td style="text-align:left;"> cl2 </td>
    <td style="text-align:left;color: red !important;"> FALSE </td>
-   <td style="text-align:left;"> cl3 </td>
+   <td style="text-align:left;"> cl4 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> ANO5 </td>
    <td style="text-align:right;"> 2 </td>
-   <td style="text-align:right;"> 96 </td>
-   <td style="text-align:left;color: red !important;"> TRUE </td>
-   <td style="text-align:left;"> cl2 </td>
-   <td style="text-align:left;color: red !important;"> TRUE </td>
-   <td style="text-align:left;"> cl2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> FGFR1 </td>
-   <td style="text-align:right;"> 2 </td>
-   <td style="text-align:right;"> 54 </td>
+   <td style="text-align:right;"> 62 </td>
    <td style="text-align:left;color: red !important;"> TRUE </td>
    <td style="text-align:left;"> cl2 </td>
    <td style="text-align:left;color: red !important;"> FALSE </td>
    <td style="text-align:left;"> cl3 </td>
   </tr>
   <tr>
+   <td style="text-align:left;"> FGFR1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 87 </td>
+   <td style="text-align:left;color: red !important;"> TRUE </td>
+   <td style="text-align:left;"> cl2 </td>
+   <td style="text-align:left;color: red !important;"> TRUE </td>
+   <td style="text-align:left;"> cl2 </td>
+  </tr>
+  <tr>
    <td style="text-align:left;"> PTGFR </td>
    <td style="text-align:right;"> 2 </td>
-   <td style="text-align:right;"> 43 </td>
+   <td style="text-align:right;"> 48 </td>
    <td style="text-align:left;color: red !important;"> TRUE </td>
    <td style="text-align:left;"> cl2 </td>
    <td style="text-align:left;color: red !important;"> FALSE </td>
@@ -1087,56 +1088,56 @@ head(output, n=10)
   <tr>
    <td style="text-align:left;"> PTPRM </td>
    <td style="text-align:right;"> 2 </td>
-   <td style="text-align:right;"> 47 </td>
+   <td style="text-align:right;"> 92 </td>
    <td style="text-align:left;color: red !important;"> TRUE </td>
    <td style="text-align:left;"> cl2 </td>
-   <td style="text-align:left;color: red !important;"> FALSE </td>
-   <td style="text-align:left;"> cl3 </td>
+   <td style="text-align:left;color: red !important;"> TRUE </td>
+   <td style="text-align:left;"> cl2 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> CRIM1 </td>
    <td style="text-align:right;"> 2 </td>
-   <td style="text-align:right;"> 127 </td>
+   <td style="text-align:right;"> 37 </td>
    <td style="text-align:left;color: red !important;"> TRUE </td>
    <td style="text-align:left;"> cl2 </td>
-   <td style="text-align:left;color: red !important;"> TRUE </td>
-   <td style="text-align:left;"> cl1 </td>
+   <td style="text-align:left;color: red !important;"> FALSE </td>
+   <td style="text-align:left;"> cl3 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> SNTB2 </td>
    <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 72 </td>
+   <td style="text-align:right;"> 98 </td>
    <td style="text-align:left;color: red !important;"> FALSE </td>
    <td style="text-align:left;"> cl3 </td>
-   <td style="text-align:left;color: red !important;"> FALSE </td>
-   <td style="text-align:left;"> cl3 </td>
+   <td style="text-align:left;color: red !important;"> TRUE </td>
+   <td style="text-align:left;"> cl2 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> USP9Y </td>
    <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 65 </td>
+   <td style="text-align:right;"> 88 </td>
    <td style="text-align:left;color: red !important;"> FALSE </td>
    <td style="text-align:left;"> cl3 </td>
-   <td style="text-align:left;color: red !important;"> FALSE </td>
-   <td style="text-align:left;"> cl3 </td>
+   <td style="text-align:left;color: red !important;"> TRUE </td>
+   <td style="text-align:left;"> cl2 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> CDH24 </td>
    <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 146 </td>
+   <td style="text-align:right;"> 26 </td>
    <td style="text-align:left;color: red !important;"> FALSE </td>
    <td style="text-align:left;"> cl3 </td>
-   <td style="text-align:left;color: red !important;"> TRUE </td>
-   <td style="text-align:left;"> cl1 </td>
+   <td style="text-align:left;color: red !important;"> FALSE </td>
+   <td style="text-align:left;"> cl4 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> ONECUT2 </td>
    <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 55 </td>
+   <td style="text-align:right;"> 102 </td>
    <td style="text-align:left;color: red !important;"> FALSE </td>
    <td style="text-align:left;"> cl3 </td>
-   <td style="text-align:left;color: red !important;"> FALSE </td>
-   <td style="text-align:left;"> cl3 </td>
+   <td style="text-align:left;color: red !important;"> TRUE </td>
+   <td style="text-align:left;"> cl2 </td>
   </tr>
 </tbody>
 </table>
@@ -1285,27 +1286,45 @@ Example data frame:
  </thead>
 <tbody>
   <tr>
+   <td style="text-align:left;"> PTGER3 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 90 </td>
+   <td style="text-align:left;color: red !important;"> TRUE </td>
+   <td style="text-align:left;"> cl1 </td>
+   <td style="text-align:left;color: red !important;"> TRUE </td>
+   <td style="text-align:left;"> cl1 </td>
+  </tr>
+  <tr>
    <td style="text-align:left;"> RAD23B </td>
    <td style="text-align:right;"> 3 </td>
-   <td style="text-align:right;"> 128 </td>
+   <td style="text-align:right;"> 111 </td>
    <td style="text-align:left;color: red !important;"> TRUE </td>
    <td style="text-align:left;"> cl1 </td>
    <td style="text-align:left;color: red !important;"> TRUE </td>
    <td style="text-align:left;"> cl1 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> PRKDC </td>
-   <td style="text-align:right;"> 3 </td>
-   <td style="text-align:right;"> 106 </td>
-   <td style="text-align:left;color: red !important;"> TRUE </td>
-   <td style="text-align:left;"> cl1 </td>
-   <td style="text-align:left;color: red !important;"> TRUE </td>
-   <td style="text-align:left;"> cl1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> PTGFR </td>
+   <td style="text-align:left;"> SGCD </td>
    <td style="text-align:right;"> 2 </td>
-   <td style="text-align:right;"> 78 </td>
+   <td style="text-align:right;"> 61 </td>
+   <td style="text-align:left;color: red !important;"> TRUE </td>
+   <td style="text-align:left;"> cl2 </td>
+   <td style="text-align:left;color: red !important;"> TRUE </td>
+   <td style="text-align:left;"> cl2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> TBC1D8B </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 86 </td>
+   <td style="text-align:left;color: red !important;"> TRUE </td>
+   <td style="text-align:left;"> cl2 </td>
+   <td style="text-align:left;color: red !important;"> TRUE </td>
+   <td style="text-align:left;"> cl2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> FGFR1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 70 </td>
    <td style="text-align:left;color: red !important;"> TRUE </td>
    <td style="text-align:left;"> cl2 </td>
    <td style="text-align:left;color: red !important;"> TRUE </td>
@@ -1314,11 +1333,11 @@ Example data frame:
   <tr>
    <td style="text-align:left;"> CRIM1 </td>
    <td style="text-align:right;"> 2 </td>
-   <td style="text-align:right;"> 79 </td>
+   <td style="text-align:right;"> 115 </td>
    <td style="text-align:left;color: red !important;"> TRUE </td>
    <td style="text-align:left;"> cl2 </td>
    <td style="text-align:left;color: red !important;"> TRUE </td>
-   <td style="text-align:left;"> cl2 </td>
+   <td style="text-align:left;"> cl1 </td>
   </tr>
 </tbody>
 </table>
